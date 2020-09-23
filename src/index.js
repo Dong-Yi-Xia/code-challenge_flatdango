@@ -16,6 +16,7 @@ const filmTicketNum = document.querySelector("span#ticket-num")
 const buyTicketButton = document.querySelector("div.ui.orange.button")
 
 let filmGlo = {}
+let divLI = {}
 
 // ----------------------------------------------------------------------------
 // fetch 
@@ -45,6 +46,8 @@ function turnFilmObjToHTML(filmObj){
     titleLI.innerText = filmObj.title
     filmsTitlesLeftSide.append(titleLI)
 
+    //make LI globally avilable 
+    divLI = titleLI
     changeColor(titleLI)
     titleLI.addEventListener("click", (evt)=>{
         movieDetails(filmObj)  
@@ -71,6 +74,7 @@ function changeColor(ele){
 
 
 function movieDetails(singleObj){
+    //make singleObj globally available
     filmGlo = singleObj
  
     filmPoster.src = singleObj.poster
